@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_cx8RoErbEem_2rPpYpkwVA" name="NewModel">
+  <packagedElement xmi:type="uml:Actor" xmi:id="_1O7TAErdEem_2rPpYpkwVA" name="Студент">
+    <eAnnotations xmi:id="_1O-WUErdEem_2rPpYpkwVA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_1O-WUUrdEem_2rPpYpkwVA" key="Human"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_YHWYgErgEem_2rPpYpkwVA" name="Преподаватель">
+    <eAnnotations xmi:id="_YHWYgUrgEem_2rPpYpkwVA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_YHWYgkrgEem_2rPpYpkwVA" key="Human"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_noU9oErhEem_2rPpYpkwVA" memberEnd="_noeHkErhEem_2rPpYpkwVA _noeHkUrhEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_noeHkErhEem_2rPpYpkwVA" type="_1O7TAErdEem_2rPpYpkwVA" association="_noU9oErhEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_noeHkUrhEem_2rPpYpkwVA" type="_tpiHkErgEem_2rPpYpkwVA" association="_noU9oErhEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_os28wErhEem_2rPpYpkwVA" memberEnd="_os28wUrhEem_2rPpYpkwVA _os28wkrhEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_os28wUrhEem_2rPpYpkwVA" type="_1O7TAErdEem_2rPpYpkwVA" association="_os28wErhEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_os28wkrhEem_2rPpYpkwVA" type="_Fy4GIErhEem_2rPpYpkwVA" association="_os28wErhEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pd_ewErhEem_2rPpYpkwVA" memberEnd="_pd_ewUrhEem_2rPpYpkwVA _peAF0ErhEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_pd_ewUrhEem_2rPpYpkwVA" type="_1O7TAErdEem_2rPpYpkwVA" association="_pd_ewErhEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_peAF0ErhEem_2rPpYpkwVA" type="_LfayMErhEem_2rPpYpkwVA" association="_pd_ewErhEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qMgKkErhEem_2rPpYpkwVA" memberEnd="_qMgKkUrhEem_2rPpYpkwVA _qMgKkkrhEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_qMgKkUrhEem_2rPpYpkwVA" type="_1O7TAErdEem_2rPpYpkwVA" association="_qMgKkErhEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_qMgKkkrhEem_2rPpYpkwVA" type="_TKEJsErhEem_2rPpYpkwVA" association="_qMgKkErhEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_boPlAErjEem_2rPpYpkwVA" name="Платформа для обучения программированию на Java" useCase="_tpiHkErgEem_2rPpYpkwVA _Fy4GIErhEem_2rPpYpkwVA _LfayMErhEem_2rPpYpkwVA _TKEJsErhEem_2rPpYpkwVA _2CsVcErhEem_2rPpYpkwVA _z_yNEEriEem_2rPpYpkwVA _aR5LMErlEem_2rPpYpkwVA _e4e70ErlEem_2rPpYpkwVA _1_i-AErlEem_2rPpYpkwVA _X9FagErmEem_2rPpYpkwVA _GxxvoErnEem_2rPpYpkwVA _E1nTAErpEem_2rPpYpkwVA _N2OX4ErpEem_2rPpYpkwVA _UQklIErpEem_2rPpYpkwVA _xLYHkErpEem_2rPpYpkwVA _sI3agErqEem_2rPpYpkwVA _-UwjMErqEem_2rPpYpkwVA">
+    <ownedUseCase xmi:id="_tpiHkErgEem_2rPpYpkwVA" name="Прочитать теорию" subject="_boPlAErjEem_2rPpYpkwVA">
+      <include xmi:id="_fGwL4ErmEem_2rPpYpkwVA" addition="_X9FagErmEem_2rPpYpkwVA"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:id="_Fy4GIErhEem_2rPpYpkwVA" name="Выполнить практическую работу" subject="_boPlAErjEem_2rPpYpkwVA">
+      <include xmi:id="_f5d_EEriEem_2rPpYpkwVA" addition="_e4e70ErlEem_2rPpYpkwVA"/>
+      <include xmi:id="_0Y1-kEroEem_2rPpYpkwVA" addition="_aR5LMErlEem_2rPpYpkwVA"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:id="_LfayMErhEem_2rPpYpkwVA" name="Выполнить лабораторную работу" subject="_boPlAErjEem_2rPpYpkwVA">
+      <include xmi:id="_7a5zcErlEem_2rPpYpkwVA" addition="_e4e70ErlEem_2rPpYpkwVA"/>
+      <include xmi:id="_8PB_EErlEem_2rPpYpkwVA" addition="_aR5LMErlEem_2rPpYpkwVA"/>
+      <include xmi:id="_87VrcErlEem_2rPpYpkwVA" addition="_1_i-AErlEem_2rPpYpkwVA"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:id="_TKEJsErhEem_2rPpYpkwVA" name="Выполнить контрольную работу" subject="_boPlAErjEem_2rPpYpkwVA">
+      <include xmi:id="_giiNYErmEem_2rPpYpkwVA" addition="_X9FagErmEem_2rPpYpkwVA"/>
+      <include xmi:id="_jiUi0ErnEem_2rPpYpkwVA" addition="_e4e70ErlEem_2rPpYpkwVA"/>
+      <include xmi:id="_sqoyMErnEem_2rPpYpkwVA" addition="_aR5LMErlEem_2rPpYpkwVA"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:id="_2CsVcErhEem_2rPpYpkwVA" name="Прочитать задание" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <ownedUseCase xmi:id="_z_yNEEriEem_2rPpYpkwVA" name="Проверить выполненое задание" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_aR5LMErlEem_2rPpYpkwVA" name="Выполнить индивидуальное задание и сдать на проверку" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_e4e70ErlEem_2rPpYpkwVA" name="Получить задание" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_1_i-AErlEem_2rPpYpkwVA" name="Написать отчет и сдать на прверку" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_X9FagErmEem_2rPpYpkwVA" name="Выполнить тест" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_GxxvoErnEem_2rPpYpkwVA" name="Проверит отчет" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_E1nTAErpEem_2rPpYpkwVA" name="Управлять группами" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_N2OX4ErpEem_2rPpYpkwVA" name="" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_UQklIErpEem_2rPpYpkwVA" name="Управлять студентами" subject="_boPlAErjEem_2rPpYpkwVA">
+      <include xmi:id="_OIUGEErsEem_2rPpYpkwVA" addition="_GxxvoErnEem_2rPpYpkwVA"/>
+      <include xmi:id="_OvOVEErsEem_2rPpYpkwVA" addition="_z_yNEEriEem_2rPpYpkwVA"/>
+      <include xmi:id="_QlQCkErsEem_2rPpYpkwVA" addition="_xLYHkErpEem_2rPpYpkwVA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_xLYHkErpEem_2rPpYpkwVA" name="Вести журнал успеваемости группы" subject="_boPlAErjEem_2rPpYpkwVA">
+      <extend xmi:id="_NvUpMErqEem_2rPpYpkwVA" extendedCase="_E1nTAErpEem_2rPpYpkwVA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_sI3agErqEem_2rPpYpkwVA" name="Управлять списками преподавателей" subject="_boPlAErjEem_2rPpYpkwVA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_-UwjMErqEem_2rPpYpkwVA" name="Управлять спискми заданий и тестов" subject="_boPlAErjEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_caqD8ErkEem_2rPpYpkwVA" memberEnd="_caqD8UrkEem_2rPpYpkwVA _caqD8krkEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_caqD8UrkEem_2rPpYpkwVA" association="_caqD8ErkEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_caqD8krkEem_2rPpYpkwVA" type="_z_yNEEriEem_2rPpYpkwVA" association="_caqD8ErkEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_duOSsErmEem_2rPpYpkwVA" memberEnd="_duO5wErmEem_2rPpYpkwVA _duPg0ErmEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_duO5wErmEem_2rPpYpkwVA" type="_1O7TAErdEem_2rPpYpkwVA" association="_duOSsErmEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_duPg0ErmEem_2rPpYpkwVA" type="_X9FagErmEem_2rPpYpkwVA" association="_duOSsErmEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_uOOE0ErnEem_2rPpYpkwVA" memberEnd="_uOOE0UrnEem_2rPpYpkwVA _uOOE0krnEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_uOOE0UrnEem_2rPpYpkwVA" type="_UQklIErpEem_2rPpYpkwVA" association="_uOOE0ErnEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_uOOE0krnEem_2rPpYpkwVA" type="_YHWYgErgEem_2rPpYpkwVA" association="_uOOE0ErnEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_e-uJ4ErpEem_2rPpYpkwVA" memberEnd="_e-uw8ErpEem_2rPpYpkwVA _e-uw8UrpEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_e-uw8ErpEem_2rPpYpkwVA" type="_YHWYgErgEem_2rPpYpkwVA" association="_e-uJ4ErpEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_e-uw8UrpEem_2rPpYpkwVA" type="_E1nTAErpEem_2rPpYpkwVA" association="_e-uJ4ErpEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_pXoB8ErqEem_2rPpYpkwVA" name="Администратор">
+    <eAnnotations xmi:id="_pXoB8UrqEem_2rPpYpkwVA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_pXoB8krqEem_2rPpYpkwVA" key="Human"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vJ3GUErqEem_2rPpYpkwVA" memberEnd="_vJ3GUUrqEem_2rPpYpkwVA _vJ3GUkrqEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_vJ3GUUrqEem_2rPpYpkwVA" type="_pXoB8ErqEem_2rPpYpkwVA" association="_vJ3GUErqEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_vJ3GUkrqEem_2rPpYpkwVA" type="_sI3agErqEem_2rPpYpkwVA" association="_vJ3GUErqEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_aw7B0ErrEem_2rPpYpkwVA" memberEnd="_aw7B0UrrEem_2rPpYpkwVA _aw7o4ErrEem_2rPpYpkwVA">
+    <ownedEnd xmi:id="_aw7B0UrrEem_2rPpYpkwVA" type="_pXoB8ErqEem_2rPpYpkwVA" association="_aw7B0ErrEem_2rPpYpkwVA"/>
+    <ownedEnd xmi:id="_aw7o4ErrEem_2rPpYpkwVA" type="_-UwjMErqEem_2rPpYpkwVA" association="_aw7B0ErrEem_2rPpYpkwVA"/>
+  </packagedElement>
+</uml:Model>
