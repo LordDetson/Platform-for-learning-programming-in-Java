@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_cx8RoErbEem_2rPpYpkwVA" name="NewModel">
+  <packageImport xmi:id="_rVQnsHyMEemFeuYP_C7z3Q">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_XN1fEHyPEemFeuYP_C7z3Q">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
   <packagedElement xmi:type="uml:Actor" xmi:id="_1O7TAErdEem_2rPpYpkwVA" name="Студент">
     <eAnnotations xmi:id="_1O-WUErdEem_2rPpYpkwVA" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <details xmi:id="_1O-WUUrdEem_2rPpYpkwVA" key="Human"/>
@@ -92,5 +98,36 @@
   <packagedElement xmi:type="uml:Association" xmi:id="_aw7B0ErrEem_2rPpYpkwVA" memberEnd="_aw7B0UrrEem_2rPpYpkwVA _aw7o4ErrEem_2rPpYpkwVA">
     <ownedEnd xmi:id="_aw7B0UrrEem_2rPpYpkwVA" type="_pXoB8ErqEem_2rPpYpkwVA" association="_aw7B0ErrEem_2rPpYpkwVA"/>
     <ownedEnd xmi:id="_aw7o4ErrEem_2rPpYpkwVA" type="_-UwjMErqEem_2rPpYpkwVA" association="_aw7B0ErrEem_2rPpYpkwVA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Y_LdsHyLEemFeuYP_C7z3Q" name="User" visibility="public">
+    <ownedAttribute xmi:id="_MGthAHyMEemFeuYP_C7z3Q" name="id" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_JF-ecHyNEemFeuYP_C7z3Q" name="username" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WK6DoHypEemfueubSQcUFg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WK7RwHypEemfueubSQcUFg" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_fDhDEHypEemfueubSQcUFg" name="password" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hfG7wHypEemfueubSQcUFg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hfG7wXypEemfueubSQcUFg" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_or3dYHypEemfueubSQcUFg" name="email" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r6NosHypEemfueubSQcUFg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r6NosXypEemfueubSQcUFg" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_tL8WUHypEemfueubSQcUFg" name="activationCode" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yqbYQHypEemfueubSQcUFg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yqbYQXypEemfueubSQcUFg" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_0GgUsHypEemfueubSQcUFg" name="activa" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2edDgHypEemfueubSQcUFg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2edDgXypEemfueubSQcUFg" value="1"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_CaafMHyqEemfueubSQcUFg"/>
   </packagedElement>
 </uml:Model>
