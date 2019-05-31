@@ -12,6 +12,8 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private String description;
+    private String imgName;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Topic> topics;
@@ -25,13 +27,13 @@ public class Course {
     )
     private Set<User> students;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "editor_course",
-            joinColumns = {@JoinColumn(name = "teacher_id")},
-            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+            joinColumns = {@JoinColumn(name = "course_id")},
+            inverseJoinColumns = {@JoinColumn(name = "teacher_id")}
     )
-    private Set<User> editor;
+    private Set<User> editors;
 
     public Long getId() {
         return id;
@@ -73,11 +75,27 @@ public class Course {
         this.students = students;
     }
 
-    public Set<User> getEditor() {
-        return editor;
+    public Set<User> getEditors() {
+        return editors;
     }
 
-    public void setEditor(Set<User> editor) {
-        this.editor = editor;
+    public void setEditors(Set<User> editors) {
+        this.editors = editors;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
     }
 }
