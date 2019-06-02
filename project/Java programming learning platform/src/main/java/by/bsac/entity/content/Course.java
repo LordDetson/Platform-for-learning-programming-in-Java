@@ -3,6 +3,7 @@ package by.bsac.entity.content;
 import by.bsac.entity.User;
 
 import javax.persistence.*;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -52,6 +53,8 @@ public class Course {
     }
 
     public List<Topic> getTopics() {
+        if (!topics.isEmpty())
+            topics.sort(Comparator.comparing(Topic::getPriority));
         return topics;
     }
 

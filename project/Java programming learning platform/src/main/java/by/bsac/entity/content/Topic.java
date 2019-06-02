@@ -1,6 +1,8 @@
 package by.bsac.entity.content;
 
 import javax.persistence.*;
+import java.util.Comparator;
+import java.util.List;
 
 @Entity
 public class Topic {
@@ -8,10 +10,10 @@ public class Topic {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private Integer priority;
 
-    @OneToOne
-    @JoinColumn(name = "first", referencedColumnName = "id")
-    private Page first;
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Page> pages;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
@@ -33,12 +35,22 @@ public class Topic {
         this.name = name;
     }
 
-    public Page getFirst() {
-        return first;
+    public Integer getPriority() {
+        return priority;
     }
 
-    public void setFirst(Page first) {
-        this.first = first;
+    public void setPriority(Integer priority) {
+        this.priority = priority;
+    }
+
+    public List<Page> getPages() {
+        if (!pages.isEmpty())
+            pages.sort(Comparator.comparing(Page::getPriority));
+        return pages;
+    }
+
+    public void setPages(List<Page> pages) {
+        this.pages = pages;
     }
 
     public Course getCourse() {

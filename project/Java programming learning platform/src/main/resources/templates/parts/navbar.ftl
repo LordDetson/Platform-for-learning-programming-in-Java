@@ -2,7 +2,7 @@
 <#import "login.ftl" as l>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Sweater</a>
+    <a class="navbar-brand" href="/">Learning platform</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,8 @@
             </#if>-->
             <#if isAdmin>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/constructor" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="/constructor" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Constructor
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -42,7 +43,14 @@
                 </li>
             </#if>
         </ul>
-        <div class="navbar-text mr-3"><#if user??>${username}<#else>Please, login</#if></div>
-        <@l.logout/>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-1">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#"><#if user??>${username}<#else>Please, login</#if></a>
+            </li>
+            <li class="nav-item text-nowrap">
+                <@l.logout/>
+            </li>
+        </ul>
     </div>
 </nav>

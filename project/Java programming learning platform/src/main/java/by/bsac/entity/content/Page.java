@@ -1,6 +1,13 @@
 package by.bsac.entity.content;
 
+import by.bsac.service.Tools;
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 @Entity
 public class Page {
@@ -9,20 +16,11 @@ public class Page {
     private Long id;
     private String name;
     private String path;
-
-    @OneToOne
-    @JoinColumn(name = "previous_page_id")
-    private Page previous;
-
-    @OneToOne(mappedBy = "previous")
-    private Page next;
+    private Integer priority;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id")
     private Topic topic;
-
-    @OneToOne(mappedBy = "first")
-    private Topic first;
 
     public Long getId() {
         return id;
@@ -48,20 +46,12 @@ public class Page {
         this.path = path;
     }
 
-    public Page getPrevious() {
-        return previous;
+    public Integer getPriority() {
+        return priority;
     }
 
-    public void setPrevious(Page previous) {
-        this.previous = previous;
-    }
-
-    public Page getNext() {
-        return next;
-    }
-
-    public void setNext(Page next) {
-        this.next = next;
+    public void setPriority(Integer priority) {
+        this.priority = priority;
     }
 
     public Topic getTopic() {
@@ -72,11 +62,7 @@ public class Page {
         this.topic = topic;
     }
 
-    public Topic getFirst() {
-        return first;
-    }
-
-    public void setFirst(Topic first) {
-        this.first = first;
+    public String getContent(Tools tools) {
+        return tools.readContentPage(getPath());
     }
 }

@@ -20,14 +20,17 @@
                                     <cite title="Source Title">${editor.username}</cite>
                                 </a>
                             </#list>
-                            <#list course.editors as editor>
-                                <#if editor.id == currentUserId>
-                                    <a class="btn btn-primary"
-                                       href="/course/edit/${course.id}">Edit</a>
-                                </#if>
-                            </#list>
                         </footer>
                     </blockquote>
+                    <#list course.editors as editor>
+                        <#if editor.id == currentUserId>
+                            <form action="/constructor/course/delete/${course.id}" method="get">
+                                <a class="btn btn-primary"
+                                   href="/constructor/course/edit/${course.id}">Редактировать</a>
+                                <button type="submit" class="btn btn-primary">Удалить</button>
+                            </form>
+                        </#if>
+                    </#list>
                 </div>
             </div>
         <#else>
