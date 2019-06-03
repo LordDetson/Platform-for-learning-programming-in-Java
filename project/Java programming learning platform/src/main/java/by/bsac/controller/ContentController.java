@@ -22,9 +22,11 @@ public class ContentController {
 
     @GetMapping
     public String greeting(@AuthenticationPrincipal User user, Model model) {
-        model.addAttribute("courses", contentService.getCourses(true));
-        if (user != null)
+        Iterable<Course> courses = contentService.getCourses(true);
+        model.addAttribute("courses", courses);
+        if (user != null) {
             model.addAttribute("coursesEdit", contentService.getCourses(user));
+        }
         return "index";
     }
 

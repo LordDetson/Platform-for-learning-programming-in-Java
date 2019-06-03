@@ -82,4 +82,9 @@ public class RegistrationController {
         }
         return "login";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }

@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/">Главная</a>
             </li>
             <#--<li class="nav-item">
                 <a class="nav-link" href="/messages">Messages</a>
@@ -33,20 +33,27 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/constructor" id="navbarDropdownMenuLink" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Constructor
+                        Конструкторы
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/constructor/course">Course</a>
-                        <a class="dropdown-item" href="#">Test</a>
-                        <a class="dropdown-item" href="#">Practice</a>
+                        <a class="dropdown-item" href="/constructor/course">Крсов</a>
+                        <a class="dropdown-item" href="#">Тестов</a>
+                        <a class="dropdown-item" href="#">Практики</a>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/userList">Пользователи</a>
                 </li>
             </#if>
         </ul>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-1">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#"><#if user??>${username}<#else>Please, login</#if></a>
+                <#if user??>
+                <a class="nav-link" href="/user/${user.id}">${username}</a>
+                <#else>
+                <span class="nav-link">Please, login</span>
+                </#if>
             </li>
             <li class="nav-item text-nowrap">
                 <@l.logout/>

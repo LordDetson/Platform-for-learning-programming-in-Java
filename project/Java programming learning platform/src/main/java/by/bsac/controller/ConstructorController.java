@@ -63,8 +63,9 @@ public class ConstructorController {
         if (!imgFile.isEmpty()) {
             course.setImgName(tools.saveImg(imgFile));
         }
-        courseRepository.save(course);
-        return "redirect:/";
+        Course save = courseRepository.save(course);
+
+        return "redirect:/constructor/course/edit/" + save.getId();
     }
 
     @PostMapping("/course/{course}")

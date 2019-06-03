@@ -74,8 +74,7 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public void save(User user, String username, Map<String, String> form) {
-        user.setUsername(username);
+    public void save(User user, Map<String, String> form) {
         Set<String> roleSet = Arrays.stream(Role.values())
                 .map(Role::name)
                 .collect(Collectors.toSet());
@@ -106,5 +105,13 @@ public class UserService implements UserDetailsService {
             //Временно не работает! Подтвержение почты
             //sendActivationCode(user);
         }
+    }
+
+    public void deleteUser(User user) {
+        userRepository.delete(user);
+    }
+
+    public void updateUser(User user) {
+        userRepository.save(user);
     }
 }

@@ -23,8 +23,8 @@ public class Course {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "course_student",
-            joinColumns = {@JoinColumn(name = "student_id")},
-            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+            joinColumns = {@JoinColumn(name = "course_id")},
+            inverseJoinColumns = {@JoinColumn(name = "student_id")}
     )
     private Set<User> students;
 
