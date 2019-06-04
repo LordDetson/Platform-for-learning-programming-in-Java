@@ -23,6 +23,61 @@
                 <#if uuser.isTeacher()>
                     <li class="list-group-item">
                         <h5 class="card-title">Модератор курсов</h5>
+                        <#if courses?size != 0>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Название курса</th>
+                                        <th scope="col">Студенты</th>
+                                        <th scope="col">Модераторы</th>
+                                        <#if uuser.id == currentUserId>
+                                            <th scope="col">Действия</th>
+                                        </#if>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <#list editableCourses as course>
+                                        <tr>
+                                            <td>
+                                                <#if course.active??>
+                                                    <a href="/course/${course.id}">${course.name}</a>
+                                                <#else>
+                                                    ${course.name}
+                                                </#if>
+                                            </td>
+                                            <td>
+                                                <a href="/course/${course.id}/students"
+                                                   class="btn btn-primary">${course.students?size}</a>
+                                            </td>
+                                            <td><a href="/course/${course.id}/editors"
+                                                   class="btn btn-primary">${course.editors?size}</a></td>
+                                            <#if uuser.id == currentUserId>
+                                                <td>
+                                                    <#if course.editors?seq_contains(uuser)>
+                                                        <form action="/constructor/course/delete/${course.id}"
+                                                              method="get">
+                                                            <a class="btn btn-secondary"
+                                                               href="/constructor/course/edit/${course.id}">Редактировать</a>
+                                                            <button type="submit" class="btn btn-secondary">Удалить
+                                                            </button>
+                                                        </form>
+                                                    </#if>
+                                                </td>
+                                            </#if>
+                                        </tr>
+                                    </#list>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <#else>
+                            Нет модерируемых курс
+                        </#if>
+                    </li>
+                </#if>
+                <li class="list-group-item">
+                    <h5 class="card-title">Подписан на курсы</h5>
+                    <#if courses?size != 0>
                         <div class="table-responsive">
                             <table class="table table-sm">
                                 <thead>
@@ -36,7 +91,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <#list editableCourses as course>
+                                <#list courses as course>
                                     <tr>
                                         <td>
                                             <#if course.active??>
@@ -53,68 +108,19 @@
                                                class="btn btn-primary">${course.editors?size}</a></td>
                                         <#if uuser.id == currentUserId>
                                             <td>
-                                                <#if course.editors?seq_contains(uuser)>
-                                                    <form action="/constructor/course/delete/${course.id}" method="get">
-                                                        <a class="btn btn-secondary"
-                                                           href="/constructor/course/edit/${course.id}">Редактировать</a>
-                                                        <button type="submit" class="btn btn-secondary">Удалить</button>
-                                                    </form>
-                                                </#if>
+                                                <form action="/user/${uuser.id}/unsubscribe/${course.id}">
+                                                    <button type="submit" class="btn btn-primary">Отписаться</button>
+                                                </form>
                                             </td>
                                         </#if>
                                     </tr>
-                                <#else>
-                                    Нет модерируемых курс
                                 </#list>
                                 </tbody>
                             </table>
                         </div>
-                    </li>
-                </#if>
-                <li class="list-group-item">
-                    <h5 class="card-title">Подписан на курсы</h5>
-                    <div class="table-responsive">
-                        <table class="table table-sm">
-                            <thead>
-                            <tr>
-                                <th scope="col">Название курса</th>
-                                <th scope="col">Студенты</th>
-                                <th scope="col">Модераторы</th>
-                                <#if uuser.id == currentUserId>
-                                    <th scope="col">Действия</th>
-                                </#if>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <#list courses as course>
-                                <tr>
-                                    <td>
-                                        <#if course.active??>
-                                            <a href="/course/${course.id}">${course.name}</a>
-                                        <#else>
-                                            ${course.name}
-                                        </#if>
-                                    </td>
-                                    <td>
-                                        <a href="/course/${course.id}/students"
-                                           class="btn btn-primary">${course.students?size}</a>
-                                    </td>
-                                    <td><a href="/course/${course.id}/editors"
-                                           class="btn btn-primary">${course.editors?size}</a></td>
-                                    <#if uuser.id == currentUserId>
-                                        <td>
-                                            <form action="/user/${uuser.id}/unsubscribe/${course.id}">
-                                                <button type="submit" class="btn btn-primary">Отписаться</button>
-                                            </form>
-                                        </td>
-                                    </#if>
-                                </tr>
-                            <#else>
-                                Не подписан ни на один курс
-                            </#list>
-                            </tbody>
-                        </table>
-                    </div>
+                    <#else>
+                        Не подписан ни на один курс
+                    </#if>
                 </li>
                 <li class="list-group-item">
                     <h5 class="card-title">Успеваемость</h5>
