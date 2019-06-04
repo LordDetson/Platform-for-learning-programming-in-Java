@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/registration", "/activate/*", "/img/*", "/course/*").permitAll()
+                    .antMatchers("/", "/registration", "/activate/*", "/img/*", "/course/search").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -37,24 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     .permitAll();
     }
-
-    /*@Bean
-    @Override
-    protected UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("u")
-                        .password("u")
-                        .roles(Role.USER.name())
-                        .build();
-        UserDetails teacher =
-                User.withDefaultPasswordEncoder()
-                        .username("t")
-                        .password("t")
-                        .roles(Role.TEACHER.name())
-                        .build();
-        return new InMemoryUserDetailsManager(user, teacher);
-    }*/
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

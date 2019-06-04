@@ -39,6 +39,14 @@ public class User implements UserDetails {
     )
     private Set<Course> courses;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "editor_course",
+            joinColumns = {@JoinColumn(name = "teacher_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+    )
+    private Set<Course> editableCourses;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Grade> grades;
 
@@ -141,6 +149,14 @@ public class User implements UserDetails {
         this.courses = courses;
     }
 
+    public Set<Course> getEditableCourses() {
+        return editableCourses;
+    }
+
+    public void setEditableCourses(Set<Course> editableCourses) {
+        this.editableCourses = editableCourses;
+    }
+
     public Set<Message> getIncomingMessages() {
         return incomingMessages;
     }
@@ -159,6 +175,14 @@ public class User implements UserDetails {
 
     public boolean isAdmin() {
         return roles.contains(Role.ADMIN);
+    }
+
+    public boolean isTeacher() {
+        return roles.contains(Role.TEACHER);
+    }
+
+    public boolean isUser() {
+        return roles.contains(Role.USER);
     }
 
     @Override

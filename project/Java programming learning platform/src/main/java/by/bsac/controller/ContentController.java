@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ContentController {
@@ -35,5 +36,30 @@ public class ContentController {
         model.addAttribute(course);
         model.addAttribute(tools);
         return "openCourse";
+    }
+
+    @GetMapping("/course/{course}/students")
+    public String studentsCourse(@PathVariable Course course, Model model) {
+        model.addAttribute("userList", course.getStudents());
+        return "userList";
+    }
+
+    @GetMapping("/course/{course}/editors")
+    public String editorsCourse(@PathVariable Course course, Model model) {
+        model.addAttribute("userList", course.getEditors());
+        return "userList";
+    }
+
+    @GetMapping("/course/search")
+    public String searchCourse(
+            @AuthenticationPrincipal User user,
+            @RequestParam String valueSearch,
+            Model model) {
+        valueSearch = '%' + valueSearch + '%';
+        model.addAttribute("courses", contentService.searchCoursesByName(true, valueSearch));
+        if (user != null) {
+            model.addAttribute("coursesEdit", contentService.searchCoursesByName(user, valueSearch));
+        }
+        return "index";
     }
 }

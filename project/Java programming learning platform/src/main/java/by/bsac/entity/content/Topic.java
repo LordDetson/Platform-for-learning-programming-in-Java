@@ -60,4 +60,10 @@ public class Topic {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+    public Integer getLastPriorityPage() {
+        List<Page> pages = getPages();
+        if (!pages.isEmpty()) return pages.get(pages.size() - 1).getPriority();
+        return 0;
+    }
 }

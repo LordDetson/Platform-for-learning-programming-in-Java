@@ -101,4 +101,12 @@ public class Course {
     public void setImgName(String imgName) {
         this.imgName = imgName;
     }
+
+    public Integer getLastPriorityPage() {
+        List<Topic> topics = getTopics();
+        if (!topics.isEmpty()) {
+            return topics.get(topics.size() - 1).getPriority();
+        }
+        return 0;
+    }
 }

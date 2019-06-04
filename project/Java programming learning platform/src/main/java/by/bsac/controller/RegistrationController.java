@@ -2,6 +2,7 @@ package by.bsac.controller;
 
 import by.bsac.entity.User;
 import by.bsac.entity.dto.CaptchaResponseDto;
+import by.bsac.service.Tools;
 import by.bsac.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -59,12 +60,12 @@ public class RegistrationController {
             model.addAttribute("passwordError", "Password are different");
         }
         if (bindingResult.hasErrors() || isConfirmEmpty || isSuccessCaptcha) {
-            Map<String, String> errorMap = ControllerUtils.getErrorMap(bindingResult);
+            Map<String, String> errorMap = Tools.getErrorMap(bindingResult);
             model.mergeAttributes(errorMap);
             return "registration";
         }
         if (!userService.addUser(user)) {
-            model.addAttribute("usernameError", "User exists!");
+            model.addAttribute("message", "User exists!");
             return "registration";
         }
         return "redirect:/login";

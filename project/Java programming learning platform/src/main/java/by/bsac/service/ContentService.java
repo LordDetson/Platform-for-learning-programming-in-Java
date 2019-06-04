@@ -24,4 +24,12 @@ public class ContentService {
     public Iterable<Course> getCourses(User editor) {
         return courseRepository.findCoursesByEditorsContains(editor);
     }
+
+    public Iterable<Course> searchCoursesByName(Boolean active, String regex) {
+        return courseRepository.findCoursesByActiveAndNameLike(active, regex);
+    }
+
+    public Iterable<Course> searchCoursesByName(User editor, String regex) {
+        return courseRepository.findCoursesByEditorsContainsAndNameLike(editor, regex);
+    }
 }

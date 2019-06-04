@@ -39,12 +39,11 @@ public class UserService implements UserDetailsService {
             return false;
         }
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.ADMIN));
+        user.setRoles(Collections.singleton(Role.USER));
         user.setActivationCode(UUID.randomUUID().toString());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-        //Временно не работает! Подтвержение почты
-        //sendActivationCode(user);
+        sendActivationCode(user);
         return true;
     }
 
@@ -102,8 +101,7 @@ public class UserService implements UserDetailsService {
         }
         userRepository.save(user);
         if (isEmailChanged) {
-            //Временно не работает! Подтвержение почты
-            //sendActivationCode(user);
+            sendActivationCode(user);
         }
     }
 

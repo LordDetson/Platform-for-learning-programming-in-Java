@@ -3,12 +3,14 @@ package by.bsac.controller;
 import by.bsac.entity.User;
 import by.bsac.entity.content.Course;
 import by.bsac.service.UserService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
+@PreAuthorize("hasAuthority('USER')")
 public class UserController {
     private final UserService userService;
 
@@ -23,6 +25,7 @@ public class UserController {
     ) {
         model.addAttribute("uuser", user);
         model.addAttribute("courses", user.getCourses());
+        model.addAttribute("editableCourses", user.getEditableCourses());
         model.addAttribute("roles", user.getRoles());
         if (!user.getGrades().isEmpty()) {
             model.addAttribute("grades", user.getGrades());

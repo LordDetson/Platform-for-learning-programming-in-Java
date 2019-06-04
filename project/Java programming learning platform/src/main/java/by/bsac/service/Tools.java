@@ -6,12 +6,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 import java.util.StringJoiner;
 import java.util.UUID;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Component
 public class Tools {
@@ -93,5 +98,13 @@ public class Tools {
         File pathImgCourse = new File(this.pathImgCourse, filename);
         file.transferTo(pathImgCourse);
         return filename;
+    }
+
+    public static Map<String, String> getErrorMap(BindingResult bindingResult) {
+        Collector<FieldError, ?, Map<String, String>> collector = Collectors.toMap(
+                fieldError -> (fieldError.getField()) + "Error",
+                FieldError::getDefaultMessage
+        );
+        return bindingResult.getFieldErrors().stream().collect(collector);
     }
 }

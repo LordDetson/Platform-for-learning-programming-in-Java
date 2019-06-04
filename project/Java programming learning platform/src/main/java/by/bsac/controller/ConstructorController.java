@@ -23,7 +23,7 @@ import java.util.*;
 
 @Controller
 @RequestMapping("/constructor")
-@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('TEACHER')")
 public class ConstructorController {
     private final CourseRepository courseRepository;
     private final TopicRepository topicRepository;
@@ -38,11 +38,6 @@ public class ConstructorController {
         this.topicRepository = topicRepository;
         this.pageRepository = pageRepository;
         this.tools = tools;
-    }
-
-    @GetMapping
-    public String greetingConstructor() {
-        return "greetingConstructor";
     }
 
     @GetMapping("/course")
@@ -69,7 +64,7 @@ public class ConstructorController {
     }
 
     @PostMapping("/course/{course}")
-    public String editCourse(
+    public String saveCourse(
             @PathVariable Course course,
             @RequestParam String name,
             @RequestParam String description,
@@ -87,8 +82,12 @@ public class ConstructorController {
     }
 
     @GetMapping("/course/edit/{course}")
-    public String editorCourse(@PathVariable Course course, Model model) {
+    public String editCourse(@PathVariable Course course, Model model) {
         model.addAttribute("course", course);
+        List<Topic> topics = course.getTopics();
+        Integer newPriorityTopic = 0;
+        if (!topics.isEmpty()) newPriorityTopic = topics.get(topics.size() - 1).getPriority();
+        model.addAttribute("newPriorityTopic", newPriorityTopic + 1);
         return "editorCourse";
     }
 
@@ -166,14 +165,9 @@ public class ConstructorController {
             @PathVariable Topic topic,
             Page page
     ) {
-        List<Page> pages = topic.getPages();
-        if (pages.isEmpty()) {
-            pages = new ArrayList<>();
-        }
-        pages.add(page);
-        topic.setPages(pages);
-        topicRepository.save(topic);
-        return "redirect:/constructor/course/edit/" + course.getId();
+        page.setTopic(topic);
+        Page save = pageRepository.save(page);
+        return "redirect:/constructor/course/" + course.getId() + "/topic/" + topic.getId() + "/page/" + save.getId() + "?action=edit";
     }
 
     @GetMapping("/course/{course}/topic/{topic}/page/{page}")

@@ -13,46 +13,35 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">Главная</a>
             </li>
-            <#--<li class="nav-item">
-                <a class="nav-link" href="/messages">Messages</a>
-            </li>
-            <#if isAdmin>
-                <li class="nav-item">
-                    <a class="nav-link" href="/user">List of users</a>
-                </li>
-            </#if>
-            <#if user??>
-                <li class="nav-item">
-                    <a class="nav-link" href="/user/profile">Your profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/user-messages/${currentUserId}">My message</a>
-                </li>
-            </#if>-->
-            <#if isAdmin>
+            <#if isTeacher>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/constructor" id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Конструкторы
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/constructor/course">Крсов</a>
+                        <a class="dropdown-item" href="/constructor/course">Курсов</a>
                         <a class="dropdown-item" href="#">Тестов</a>
                         <a class="dropdown-item" href="#">Практики</a>
                     </div>
                 </li>
+            </#if>
+            <#if isAdmin>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/userList">Пользователи</a>
                 </li>
             </#if>
         </ul>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <form action="/course/search" method="get">
+            <input class="form-control form-control-dark w-100" type="text" placeholder="Поиск курса"
+                   aria-label="Поиск курса" name="valueSearch">
+        </form>
         <ul class="navbar-nav px-1">
             <li class="nav-item text-nowrap">
                 <#if user??>
-                <a class="nav-link" href="/user/${user.id}">${username}</a>
+                    <a class="nav-link" href="/user/${(user.id)!}">${username}</a>
                 <#else>
-                <span class="nav-link">Please, login</span>
+                    <a class="nav-link" href="/registration">Регистрация</a>
                 </#if>
             </li>
             <li class="nav-item text-nowrap">

@@ -14,61 +14,129 @@
                         <dd class="col-sm-9">${uuser.email}</dd>
                     </dl>
                     <#if uuser.id == currentUserId>
-                        <a href="/user/${uuser.id}/edit" class="btn btn-primary">Редактировать</a>
+                        <div class="btn-group">
+                            <a href="/user/${uuser.id}/edit" class="btn btn-secondary">Редактировать</a>
+                            <a href="/user/${uuser.id}/delete" class="btn btn-secondary">Удалить</a>
+                        </div>
                     </#if>
                 </li>
+                <#if uuser.isTeacher()>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Модератор курсов</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Название курса</th>
+                                    <th scope="col">Студенты</th>
+                                    <th scope="col">Модераторы</th>
+                                    <#if uuser.id == currentUserId>
+                                        <th scope="col">Действия</th>
+                                    </#if>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <#list editableCourses as course>
+                                    <tr>
+                                        <td>
+                                            <#if course.active??>
+                                                <a href="/course/${course.id}">${course.name}</a>
+                                            <#else>
+                                                ${course.name}
+                                            </#if>
+                                        </td>
+                                        <td>
+                                            <a href="/course/${course.id}/students"
+                                               class="btn btn-primary">${course.students?size}</a>
+                                        </td>
+                                        <td><a href="/course/${course.id}/editors"
+                                               class="btn btn-primary">${course.editors?size}</a></td>
+                                        <#if uuser.id == currentUserId>
+                                            <td>
+                                                <#if course.editors?seq_contains(uuser)>
+                                                    <form action="/constructor/course/delete/${course.id}" method="get">
+                                                        <a class="btn btn-secondary"
+                                                           href="/constructor/course/edit/${course.id}">Редактировать</a>
+                                                        <button type="submit" class="btn btn-secondary">Удалить</button>
+                                                    </form>
+                                                </#if>
+                                            </td>
+                                        </#if>
+                                    </tr>
+                                <#else>
+                                    Нет модерируемых курс
+                                </#list>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+                </#if>
                 <li class="list-group-item">
-                    <h5 class="card-title">Ваши курсы</h5>
-                    <#list courses as course>
+                    <h5 class="card-title">Подписан на курсы</h5>
+                    <div class="table-responsive">
                         <table class="table table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">Название курса</th>
                                 <th scope="col">Студенты</th>
                                 <th scope="col">Модераторы</th>
-                                <th scope="col">Отписаться</th>
+                                <#if uuser.id == currentUserId>
+                                    <th scope="col">Действия</th>
+                                </#if>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>${course.name}</td>
-                                <td>
-                                    <a href="/course/${course.id}/students"
-                                       class="btn btn-primary">${course.students?size}</a>
-                                </td>
-                                <td><a href="/course/${course.id}/editors"
-                                       class="btn btn-primary">${course.editors?size}</a></td>
-                                <td>
-                                    <form action="/user/${uuser.id}/unsubscribe/${course.id}">
-                                        <button type="submit" class="btn btn-primary">Отписаться</button>
-                                    </form>
-                                </td>
-                            </tr>
+                            <#list courses as course>
+                                <tr>
+                                    <td>
+                                        <#if course.active??>
+                                            <a href="/course/${course.id}">${course.name}</a>
+                                        <#else>
+                                            ${course.name}
+                                        </#if>
+                                    </td>
+                                    <td>
+                                        <a href="/course/${course.id}/students"
+                                           class="btn btn-primary">${course.students?size}</a>
+                                    </td>
+                                    <td><a href="/course/${course.id}/editors"
+                                           class="btn btn-primary">${course.editors?size}</a></td>
+                                    <#if uuser.id == currentUserId>
+                                        <td>
+                                            <form action="/user/${uuser.id}/unsubscribe/${course.id}">
+                                                <button type="submit" class="btn btn-primary">Отписаться</button>
+                                            </form>
+                                        </td>
+                                    </#if>
+                                </tr>
+                            <#else>
+                                Не подписан ни на один курс
+                            </#list>
                             </tbody>
                         </table>
-                    <#else>
-                        Не подписан ни на один курс
-                    </#list>
+                    </div>
                 </li>
                 <li class="list-group-item">
                     <h5 class="card-title">Успеваемость</h5>
                     <#if grades??>
-                        <table class="table table-sm">
-                            <thead>
-                            <tr>
-                                <#list grades as grade>
-                                    <th scope="col">${grade.date}</th>
-                                </#list>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <#list grades as grade>
-                                    <th scope="col">${grade.grade}</th>
-                                </#list>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <#list grades as grade>
+                                        <th scope="col">${grade.date}</th>
+                                    </#list>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <#list grades as grade>
+                                        <th scope="col">${grade.grade}</th>
+                                    </#list>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     <#else>
                         Нет оценок
                     </#if>
