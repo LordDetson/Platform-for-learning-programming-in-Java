@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="305.3989047619047" y="0.0">by.bsac.entity.test.Answer</node>
+    <node x="0.0" y="781.0">by.bsac.entity.Role</node>
+    <node x="91.0" y="539.0">by.bsac.entity.content.Topic</node>
+    <node x="295.0714285714286" y="165.0">by.bsac.entity.test.Question</node>
+    <node x="254.8214285714286" y="363.0">by.bsac.entity.test.Tag</node>
+    <node x="99.5" y="352.0">by.bsac.entity.content.Page</node>
+    <node x="278.5" y="1384.0">by.bsac.entity.DocumentType</node>
+    <node x="335.92590476190475" y="748.0">by.bsac.entity.Grade</node>
+    <node x="154.50000000000003" y="1571.0">by.bsac.entity.Document</node>
+    <node x="312.42590476190475" y="539.0">by.bsac.entity.test.Test</node>
+    <node x="81.00000000000006" y="999.0">by.bsac.entity.User</node>
+    <node x="87.0" y="726.0">by.bsac.entity.content.Course</node>
+    <node x="354.0343333333333" y="1758.0">by.bsac.entity.test.Practice</node>
+    <node x="116.50000000000003" y="1340.0">by.bsac.entity.Message</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="by.bsac.entity.test.Practice" target="by.bsac.entity.Document">
+      <point x="-56.80000000000001" y="-68.5" />
+      <point x="368.2343333333333" y="1738.0" />
+      <point x="188.75000000000003" y="1738.0" />
+      <point x="-34.25" y="68.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Practice" target="by.bsac.entity.Grade">
+      <point x="0.0" y="-68.5" />
+      <point x="426.0" y="979.0" />
+      <point x="411.14019047619047" y="979.0" />
+      <point x="16.714285714285715" y="79.5" />
+    </edge>
+    <edge source="by.bsac.entity.content.Topic" target="by.bsac.entity.content.Course">
+      <point x="47.25" y="68.5" />
+      <point x="201.25" y="701.0" />
+      <point x="204.25" y="701.0" />
+      <point x="50.25" y="-101.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Answer" target="by.bsac.entity.test.Question">
+      <point x="31.5" y="57.5" />
+      <point x="399.8989047619047" y="140.0" />
+      <point x="404.5714285714286" y="140.0" />
+      <point x="36.5" y="-68.5" />
+    </edge>
+    <edge source="by.bsac.entity.Grade" target="by.bsac.entity.test.Test">
+      <point x="0.0" y="-79.5" />
+      <point x="0.0" y="68.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Test" target="by.bsac.entity.test.Question">
+      <point x="20.499999999999993" y="-68.5" />
+      <point x="414.9259047619047" y="514.0" />
+      <point x="429.3214285714286" y="514.0" />
+      <point x="429.3214285714286" y="332.0" />
+      <point x="386.3214285714286" y="332.0" />
+      <point x="18.25" y="68.5" />
+    </edge>
+    <edge source="by.bsac.entity.Document" target="by.bsac.entity.Message">
+      <point x="-45.66666666666666" y="-68.5" />
+      <point x="177.33333333333337" y="1546.0" />
+      <point x="152.00000000000003" y="1546.0" />
+      <point x="-35.5" y="90.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Question" target="by.bsac.entity.test.Test">
+      <point x="54.75000000000001" y="68.5" />
+      <point x="422.8214285714286" y="322.0" />
+      <point x="440.3214285714286" y="322.0" />
+      <point x="440.3214285714286" y="514.0" />
+      <point x="455.9259047619047" y="514.0" />
+      <point x="61.49999999999999" y="-68.5" />
+    </edge>
+    <edge source="by.bsac.entity.Document" target="by.bsac.entity.test.Practice">
+      <point x="34.25" y="68.5" />
+      <point x="257.25" y="1728.0" />
+      <point x="396.6343333333333" y="1728.0" />
+      <point x="-28.400000000000006" y="-68.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Tag" target="by.bsac.entity.test.Test">
+      <point x="41.0" y="57.5" />
+      <point x="377.8214285714286" y="514.0" />
+      <point x="373.92590476190475" y="514.0" />
+      <point x="-20.5" y="-68.5" />
+    </edge>
+    <edge source="by.bsac.entity.content.Course" target="by.bsac.entity.User">
+      <point x="50.25" y="101.5" />
+      <point x="204.25" y="979.0" />
+      <point x="198.15000000000003" y="979.0" />
+      <point x="10.649999999999977" y="-145.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Question" target="by.bsac.entity.test.Tag">
+      <point x="-18.25" y="68.5" />
+      <point x="349.8214285714286" y="332.0" />
+      <point x="377.8214285714286" y="332.0" />
+      <point x="41.0" y="-57.5" />
+    </edge>
+    <edge source="by.bsac.entity.content.Topic" target="by.bsac.entity.content.Page">
+      <point x="-47.25" y="-68.5" />
+      <point x="106.75" y="514.0" />
+      <point x="113.125" y="514.0" />
+      <point x="-40.875" y="68.5" />
+    </edge>
+    <edge source="by.bsac.entity.Document" target="by.bsac.entity.DocumentType">
+      <point x="45.66666666666666" y="-68.5" />
+      <point x="268.6666666666667" y="1546.0" />
+      <point x="347.0" y="1546.0" />
+      <point x="0.0" y="46.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Question" target="by.bsac.entity.test.Answer">
+      <point x="-36.5" y="-68.5" />
+      <point x="331.5714285714286" y="140.0" />
+      <point x="336.8989047619047" y="140.0" />
+      <point x="-31.5" y="57.5" />
+    </edge>
+    <edge source="by.bsac.entity.User" target="by.bsac.entity.Grade">
+      <point x="53.25" y="-145.5" />
+      <point x="240.75000000000006" y="959.0" />
+      <point x="360.9973333333333" y="959.0" />
+      <point x="-33.428571428571445" y="79.5" />
+    </edge>
+    <edge source="by.bsac.entity.content.Page" target="by.bsac.entity.content.Topic">
+      <point x="40.875" y="68.5" />
+      <point x="194.875" y="514.0" />
+      <point x="201.25" y="514.0" />
+      <point x="47.25" y="-68.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Test" target="by.bsac.entity.Grade">
+      <point x="54.66666666666662" y="68.5" />
+      <point x="449.0925714285713" y="701.0" />
+      <point x="433.4259047619047" y="701.0" />
+      <point x="38.99999999999999" y="-79.5" />
+    </edge>
+    <edge source="by.bsac.entity.Grade" target="by.bsac.entity.test.Practice">
+      <point x="33.42857142857138" y="79.5" />
+      <point x="427.85447619047613" y="969.0" />
+      <point x="437.0" y="969.0" />
+      <point x="437.0" y="1738.0" />
+      <point x="453.4343333333333" y="1738.0" />
+      <point x="28.400000000000006" y="-68.5" />
+    </edge>
+    <edge source="by.bsac.entity.User" target="by.bsac.entity.Role">
+      <point x="-74.55000000000007" y="-145.5" />
+      <point x="112.94999999999999" y="969.0" />
+      <point x="50.25" y="969.0" />
+      <point x="16.75" y="46.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Test" target="by.bsac.entity.test.Tag">
+      <point x="-61.5" y="-68.5" />
+      <point x="332.92590476190475" y="514.0" />
+      <point x="295.8214285714286" y="514.0" />
+      <point x="-41.0" y="57.5" />
+    </edge>
+    <edge source="by.bsac.entity.User" target="by.bsac.entity.content.Course">
+      <point x="-53.25000000000006" y="-145.5" />
+      <point x="134.25" y="959.0" />
+      <point x="103.75" y="959.0" />
+      <point x="-50.25" y="101.5" />
+    </edge>
+    <edge source="by.bsac.entity.test.Tag" target="by.bsac.entity.test.Question">
+      <point x="-41.0" y="-57.5" />
+      <point x="295.8214285714286" y="332.0" />
+      <point x="313.3214285714286" y="332.0" />
+      <point x="-54.75" y="68.5" />
+    </edge>
+    <edge source="by.bsac.entity.User" target="by.bsac.entity.Message">
+      <point x="71.0" y="145.5" />
+      <point x="258.50000000000006" y="1315.0" />
+      <point x="234.83333333333334" y="1315.0" />
+      <point x="47.333333333333314" y="-90.5" />
+    </edge>
+    <edge source="by.bsac.entity.Message" target="by.bsac.entity.Document">
+      <point x="35.5" y="90.5" />
+      <point x="0.0" y="-68.5" />
+    </edge>
+    <edge source="by.bsac.entity.content.Course" target="by.bsac.entity.content.Topic">
+      <point x="-16.75" y="-101.5" />
+      <point x="-15.75" y="68.5" />
+    </edge>
+    <edge source="by.bsac.entity.Message" target="by.bsac.entity.User">
+      <point x="-47.33333333333334" y="-90.5" />
+      <point x="140.16666666666669" y="1315.0" />
+      <point x="116.50000000000006" y="1315.0" />
+      <point x="-71.0" y="145.5" />
+    </edge>
+    <edge source="by.bsac.entity.Grade" target="by.bsac.entity.User">
+      <point x="0.0" y="79.5" />
+      <point x="394.42590476190475" y="979.0" />
+      <point x="283.3500000000001" y="979.0" />
+      <point x="95.85000000000002" y="-145.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="320.0" y="819.0" />
+  <SelectedNodes>
+    <node>by.bsac.entity.User</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
