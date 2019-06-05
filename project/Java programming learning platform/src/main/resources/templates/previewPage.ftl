@@ -1,6 +1,7 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
-    <h3>${name}</h3>
+    <h3 class="mb-3">${name}</h3>
+    <hr>
     ${content}
     <form action="/constructor/course/${course.id}/topic/${topic.id}/page/${page.id}/save" method="post">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">

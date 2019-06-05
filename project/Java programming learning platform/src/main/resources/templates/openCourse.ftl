@@ -6,7 +6,8 @@
                 <#list topic.pages as page>
                     <div class="tab-pane fade" id="v-pills-topic${topic.id}-page${page.id}" role="tabpanel"
                          aria-labelledby="v-pills-topic${topic.id}-tab">
-                        <h3>Тема ${page.priority}: ${page.name}</h3>
+                        <h3 class="mb-3">${page.name}</h3>
+                        <hr>
                         ${page.getContent(tools)}
                     </div>
                 </#list>

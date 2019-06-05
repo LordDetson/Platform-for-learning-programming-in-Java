@@ -14,29 +14,19 @@
                     <#if user??>
                         <#if course.students?seq_contains(user)>
                             <form action="/user/${user.id}/unsubscribe/${course.id}">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="unsubscribe">${course.students?size}</span>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" aria-describedby="unsubscribe">
-                                        Отписаться
+                                    <button type="submit" class="btn btn-primary mb-2">
+                                        Отписаться <span class="badge badge-light">${course.students?size}</span>
                                     </button>
-                                </div>
                             </form>
                         <#else>
                             <form action="/user/${user.id}/subscribe/${course.id}">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="subscribe">${course.students?size}</span>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" aria-describedby="subscribe">
-                                        Подписаться
+                                    <button type="submit" class="btn btn-primary mb-2">
+                                        Подписаться <span class="badge badge-light">${course.students?size}</span>
                                     </button>
-                                </div>
                             </form>
                         </#if>
                     </#if>
-                    <blockquote class="blockquote mb-0">
+                    <blockquote class="blockquote mb-2">
                         <p>${course.description}</p>
                         <footer class="blockquote-footer">
                             Модераторы
@@ -46,7 +36,6 @@
                                 </a>
                             </#list>
                         </footer>
-
                     </blockquote>
                     <#if course.editors?seq_contains(user)>
                         <form action="/constructor/course/delete/${course.id}" method="get">
