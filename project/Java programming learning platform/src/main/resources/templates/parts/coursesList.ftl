@@ -27,7 +27,7 @@
                         </#if>
                     </#if>
                     <blockquote class="blockquote mb-2">
-                        <p>${course.description}</p>
+                        <p class="h6">${course.description}</p>
                         <footer class="blockquote-footer">
                             Модераторы
                             <#list course.editors as editor>

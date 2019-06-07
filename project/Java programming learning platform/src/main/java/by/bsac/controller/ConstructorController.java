@@ -109,8 +109,10 @@ public class ConstructorController {
                 }
             }
         }
-        File imgCourse = new File(this.pathImgCourse, course.getImgName());
-        imgCourse.delete();
+        if (!StringUtils.isEmpty(course.getImgName())) {
+            File imgCourse = new File(this.pathImgCourse, course.getImgName());
+            imgCourse.delete();
+        }
         courseRepository.delete(course);
         return "redirect:/";
     }

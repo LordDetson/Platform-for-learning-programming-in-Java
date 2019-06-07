@@ -23,7 +23,7 @@
                 <#if uuser.isTeacher()>
                     <li class="list-group-item">
                         <h5 class="card-title">Модератор курсов</h5>
-                        <#if courses?size != 0>
+                        <#if editableCourses?size != 0>
                             <div class="table-responsive">
                                 <table class="table table-sm">
                                     <thead>

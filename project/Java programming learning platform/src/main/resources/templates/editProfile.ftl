@@ -6,19 +6,19 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Наименование профиля:</label>
             <div class="col-sm-4">
-                <input class="form-control-plaintext" type="text" name="username" placeholder="Username" value="${user.username}"/>
+                <input class="form-control" type="text" name="username" placeholder="Username" value="${user.username}"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Пароль:</label>
             <div class="col-sm-4">
-                <input class="form-control-plaintext" type="password" name="password" placeholder="Password"/>
+                <input class="form-control" type="password" name="password" placeholder="Password"/>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Email:</label>
             <div class="col-sm-4">
-                <input class="form-control-plaintext" type="email" name="email" placeholder="some@some.com"
+                <input class="form-control" type="email" name="email" placeholder="some@some.com"
                        value="${user.email!''}"/>
             </div>
         </div>
