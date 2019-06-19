@@ -43,11 +43,11 @@ public class UserService implements UserDetailsService {
         user.setActivationCode(UUID.randomUUID().toString());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-        sendActivationCode(user);
+        //sendActivationCode(user);
         return true;
     }
 
-    private void sendActivationCode(User user) {
+    /*private void sendActivationCode(User user) {
         if (!StringUtils.isEmpty(user.getEmail())) {
             String message = String.format(
                     "Hello %s!\n" +
@@ -57,7 +57,7 @@ public class UserService implements UserDetailsService {
             );
             mailSend.send(user.getEmail(), "Activation code mail", message);
         }
-    }
+    }*/
 
     public boolean activateUser(String code) {
         User byActivationCode = userRepository.findByActivationCode(code);
@@ -94,15 +94,15 @@ public class UserService implements UserDetailsService {
             user.setActivationCode(UUID.randomUUID().toString());
         }
         if (!StringUtils.isEmpty(password)) {
-            user.setPassword(password);
+            user.setPassword(passwordEncoder.encode(password));
         }
         if (!StringUtils.isEmpty(username)) {
             user.setUsername(username);
         }
         userRepository.save(user);
-        if (isEmailChanged) {
+        /*if (isEmailChanged) {
             sendActivationCode(user);
-        }
+        }*/
     }
 
     public void deleteUser(User user) {
